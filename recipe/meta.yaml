@@ -1,5 +1,4 @@
-{% set version = '1.0.0' %}
-
+{% set version = '1.1.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +9,12 @@ package:
 source:
   fn: tidygraph_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/tidygraph_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/tidygraph/tidygraph_{{ version }}.tar.gz
-  sha256: a00256841dd1f6e19e8c26e2224d3809055cb18f59e8567f9a3dd42139ac12fc
+    - {{ cran_mirror }}/src/contrib/tidygraph_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/tidygraph/tidygraph_{{ version }}.tar.gz
+  sha256: 6419cfdfb7a160e8f032c62cd68ab12dbd870994a53a182443baa878438c15b3
 
 build:
+  merge_build_host: True  # [win]
   number: 0
   skip: true  # [win32]
   rpaths:
@@ -23,6 +23,14 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('cxx') }}      # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed  # [win]
+    - {{posix}}coreutils  # [win]
+  host:
     - r-base
     - r-r6
     - r-rcpp
@@ -32,12 +40,9 @@ requirements:
     - r-rlang
     - r-tibble
     - r-tidyr
-    - posix                # [win]
-    - {{native}}toolchain  # [win]
-    - gcc                  # [not win]
-
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
     - r-r6
     - r-rcpp
     - r-dplyr >=0.7
@@ -46,28 +51,26 @@ requirements:
     - r-rlang
     - r-tibble
     - r-tidyr
-    - libgcc  # [not win]
 
 test:
   commands:
-    - $R -e "library('tidygraph')"  # [not win]
+    - $R -e "library('tidygraph')"           # [not win]
     - "\"%R%\" -e \"library('tidygraph')\""  # [win]
 
 about:
-  home: https://cran.r-project.org/package=tidygraph
-  license: GPL (>= 2)
+  home: https://github.com/thomasp85/tidygraph
+  license: MIT
   summary: A graph, while not "tidy" in itself, can be thought of as two tidy data frames describing
     node and edge data respectively. 'tidygraph' provides an approach to manipulate
     these two virtual data frames using the API defined in the 'dplyr' package, as well
     as provides tidy interfaces to  a lot of common graph algorithms.
-  license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
-  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
+  license_family: MIT
 
 extra:
   recipe-maintainers:
-    - cbrueffer
+    - nick-youngblut
     - johanneskoester
     - bgruening
     - daler
     - jdblischak
+    - cbrueffer
