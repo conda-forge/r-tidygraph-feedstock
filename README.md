@@ -1,9 +1,9 @@
 About r-tidygraph
 =================
 
-Home: https://cran.r-project.org/package=tidygraph
+Home: https://github.com/thomasp85/tidygraph
 
-Package license: GPL (>= 2)
+Package license: MIT
 
 Feedstock license: BSD 3-Clause
 
@@ -14,14 +14,16 @@ Summary: A graph, while not "tidy" in itself, can be thought of as two tidy data
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/r-tidygraph-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/r-tidygraph-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/r-tidygraph-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/r-tidygraph-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/r-tidygraph-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/r-tidygraph-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-tidygraph-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-tidygraph-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-tidygraph-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-tidygraph-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-tidygraph-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-tidygraph-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-tidygraph/badges/version.svg)](https://anaconda.org/conda-forge/r-tidygraph)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-tidygraph/badges/downloads.svg)](https://anaconda.org/conda-forge/r-tidygraph)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--tidygraph-green.svg)](https://anaconda.org/conda-forge/r-tidygraph) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-tidygraph.svg)](https://anaconda.org/conda-forge/r-tidygraph) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-tidygraph.svg)](https://anaconda.org/conda-forge/r-tidygraph) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-tidygraph.svg)](https://anaconda.org/conda-forge/r-tidygraph) |
 
 Installing r-tidygraph
 ======================
