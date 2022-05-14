@@ -24,12 +24,13 @@ requirements:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
     - r-igraph                   # [build_platform != target_platform]
     - r-tibble                   # [build_platform != target_platform]
-    - r-rcpp                     # [build_platform != target_platform]
+    - r-cpp11                    # [build_platform != target_platform]
     - r-tidyr                    # [build_platform != target_platform]
     - r-magrittr                 # [build_platform != target_platform]
     - r-pillar                   # [build_platform != target_platform]
     - r-rlang                    # [build_platform != target_platform]
     - r-dplyr                    # [build_platform != target_platform]
+    - r-cli                    # [build_platform != target_platform]
     - r-r6                       # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
@@ -43,8 +44,9 @@ requirements:
   host:
     - r-base
     - r-r6
-    - r-rcpp
-    - r-dplyr >=0.8
+    - r-cli
+    - r-cpp11
+    - r-dplyr >=0.8.5
     - r-igraph
     - r-magrittr
     - r-pillar
@@ -55,8 +57,9 @@ requirements:
     - r-base
     - {{ native }}gcc-libs         # [win]
     - r-r6
-    - r-rcpp
-    - r-dplyr >=0.8
+    - r-cli
+    - r-cpp11
+    - r-dplyr >=0.8.5
     - r-igraph
     - r-magrittr
     - r-pillar
