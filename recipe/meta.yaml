@@ -1,4 +1,4 @@
-{% set version = "1.2.2" %}
+{% set version = "1.2.3" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/tidygraph_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tidygraph/tidygraph_{{ version }}.tar.gz
-  sha256: d555cad6b5b56bd2edaa29950a0fd15942e972db21561bfd5cd64fd9a8936470
+  sha256: b09c06b12583ae57edd1ec01e61a0e1b7a4b82358361fb28a6046dbece475687
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
